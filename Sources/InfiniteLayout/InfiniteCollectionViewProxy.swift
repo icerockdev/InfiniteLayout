@@ -82,7 +82,7 @@ class InfiniteCollectionViewDataSourceProxy: InfiniteCollectionViewProxy<UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.delegate?.collectionView(collectionView, cellForItemAt: indexPath) ??
-            self.collectionView.collectionView(collectionView, cellForItemAt: indexPath)
+        return self.delegate?.collectionView(collectionView, cellForItemAt: self.collectionView.indexPath(from: indexPath)) ??
+            self.collectionView.collectionView(collectionView, cellForItemAt: self.collectionView.indexPath(from: indexPath))
     }
 }
